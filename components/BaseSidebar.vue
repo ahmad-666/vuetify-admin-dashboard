@@ -1,14 +1,12 @@
 <template>
   <v-navigation-drawer
-    v-model="sidebar"
-    app
+    v-model="sidebarModel"
     color="teal accent-4"
     dark
     fixed
-    bottom
     width="30em"
-    class="py-2 px-4"
-    expand-on-hover
+    class="py-2 px-4 mySidebar ml-4 rounded-lg"
+    :expand-on-hover="!expandSidebar"
   >
     <v-list>
       <v-list-item v-for="sidebarItem in sidebarItems" :key="sidebarItem.id">
@@ -66,13 +64,14 @@
 <script>
 export default {
   props: {
-    showSidebar: {
+    expandSidebar: {
       type: Boolean,
       default: true,
     },
   },
   data() {
     return {
+      sidebarModel: true,
       sidebarItems: [
         {
           id: 1,
@@ -119,20 +118,15 @@ export default {
       ],
     }
   },
-  computed: {
-    sidebar: {
-      set(val) {
-        return val
-      },
-      get() {
-        return this.showSidebar
-      },
-    },
-  },
 }
 </script>
 <style scoped lang="scss">
 .v-list-item__content {
   padding: 0 !important;
+}
+.mySidebar {
+  background-image: linear-gradient(0deg, #ff6491, #ff8d72) !important;
+  top: 7em !important;
+  height: calc(100% - 8em) !important;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <v-app :style="{ backgroundColor: '#f5f6fa' }">
-    <base-nav @event:showSidebar="showSidebarHandler"></base-nav>
-    <base-sidebar :show-sidebar="showSidebar"></base-sidebar>
-    <v-main class="mt-4">
+    <base-nav @event:toggleExpandSidebar="toggleExpandSidebar"></base-nav>
+    <base-sidebar :expand-sidebar="expandSidebar"></base-sidebar>
+    <v-main class="mt-6 ml-6 pl-15 pr-4" :class="{ moveLeft: expandSidebar }">
       <Nuxt />
     </v-main>
   </v-app>
@@ -17,14 +17,18 @@ export default {
   },
   data() {
     return {
-      showSidebar: true,
+      expandSidebar: false,
     }
   },
   methods: {
-    showSidebarHandler() {
-      this.showSidebar = !this.showSidebar
+    toggleExpandSidebar() {
+      this.expandSidebar = !this.expandSidebar
     },
   },
 }
 </script>
-<style></style>
+<style lang="scss" scoped>
+.moveLeft {
+  margin-left: 27em !important;
+}
+</style>

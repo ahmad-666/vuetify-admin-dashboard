@@ -14,7 +14,7 @@
             grey--text
             text--darken-1
             font-weight-light
-            text-capitalize text-right
+            text-capitalize
           "
         >
           {{ title }}
@@ -25,16 +25,14 @@
       </div>
     </v-card-text>
     <v-card-actions class="py-2 px-0 border-top-light">
-      <v-btn
-        text
-        class="d-flex align-center grey--text"
-        @click="btnActionHandler"
-      >
-        <v-icon size="12">{{ subIcon }}</v-icon>
-        <p class="ml-2 text-capitalize text-caption font-weight-light">
-          {{ actionText }}
-        </p>
-      </v-btn>
+      <nuxt-link :to="actionLink">
+        <v-btn text class="d-flex align-center grey--text">
+          <v-icon size="12">{{ subIcon }}</v-icon>
+          <p class="ml-2 text-capitalize text-caption font-weight-light">
+            {{ actionText }}
+          </p>
+        </v-btn>
+      </nuxt-link>
     </v-card-actions>
   </v-card>
 </template>
@@ -65,9 +63,9 @@ export default {
       type: String,
       default: 'linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72)',
     },
-    btnActionHandler: {
-      type: Function,
-      default: () => {},
+    actionLink: {
+      type: String,
+      default: '',
     },
   },
 }

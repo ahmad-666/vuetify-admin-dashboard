@@ -1,9 +1,18 @@
 <template>
-  <v-app-bar color="transparent" app light dense :elevation="0">
+  <v-app-bar
+    color="transparent"
+    absolute
+    app
+    light
+    dense
+    class="pl-4"
+    elevate-on-scroll
+    scroll-target="#scrolling-techniques-7"
+  >
     <v-app-bar-nav-icon @click="toggleShowSidebar"></v-app-bar-nav-icon>
-    <v-toolbar-title
+    <v-app-bar-title
       class="font-weight-medium text-subtitle-1 grey--text text--darken-3"
-      >Site Name</v-toolbar-title
+      >Site Name</v-app-bar-title
     >
     <v-spacer></v-spacer>
     <v-dialog>
@@ -145,7 +154,7 @@ export default {
   methods: {
     searchHandler() {},
     toggleShowSidebar() {
-      this.$emit('event:showSidebar')
+      this.$emit('event:toggleExpandSidebar')
     },
   },
 }
