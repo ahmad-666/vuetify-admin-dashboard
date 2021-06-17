@@ -81,16 +81,16 @@ export default {
         },
         {
           id: 2,
-          text: 'pages',
+          text: 'cards',
           icon: 'fas fa-pager',
           items: [
             {
-              text: 'pricing',
-              route: '/pricing',
+              text: 'info card',
+              route: '/infoCard',
             },
             {
-              text: 'profile',
-              route: '/profile',
+              text: 'pricing card',
+              route: '/pricingCard',
             },
           ],
         },
@@ -113,7 +113,18 @@ export default {
           id: 4,
           text: 'charts',
           icon: 'fas fa-chart-bar',
-          route: '/charts',
+          items: [
+            {
+              text: 'line chart',
+              route: '/lineChart',
+            },
+          ],
+        },
+        {
+          id: 5,
+          text: 'form elements',
+          icon: 'fas fa-edit',
+          route: '/form',
         },
       ],
     }

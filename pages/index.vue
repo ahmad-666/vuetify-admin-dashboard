@@ -1,39 +1,51 @@
 <template>
-  <div>
-    <div class="generalCards d-flex align-stretch flex-wrap mt-n4">
-      <div
-        v-for="generalInfoCard in generalInfoCards"
-        :key="generalInfoCard.id"
-        class="generalCard"
-      >
-        <general-info-card
-          :icon="generalInfoCard.icon"
-          :title="generalInfoCard.title"
-          :value="generalInfoCard.value"
-          :sub-icon="generalInfoCard.subIcon"
-          :action-text="generalInfoCard.actionText"
-          :icon-gradient="generalInfoCard.iconGradient"
-          :action-link="generalInfoCard.actionLink"
-        ></general-info-card>
-      </div>
-    </div>
-    <div class="price-cards mt-4 d-flex align-stretch flex-wrap">
-      <div
-        v-for="priceCard in priceCards"
-        :key="priceCard.id"
-        class="price-card"
-      >
-        <price-card
-          :label="priceCard.label"
-          :price="priceCard.price"
-          :features="priceCard.features"
-          btn-text="get started"
-          :bg-img-src="priceCard.bgImgSrc"
-          :theme-color="priceCard.themeColor"
-          :btn-gradient="priceCard.btnGradient"
-        ></price-card>
-      </div>
-    </div>
+  <div class="mt-n3">
+    <v-container>
+      <v-row>
+        <v-col
+          v-for="generalInfoCard in generalInfoCards"
+          :key="generalInfoCard.id"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="3"
+          xl="2"
+        >
+          <general-info-card
+            :icon="generalInfoCard.icon"
+            :title="generalInfoCard.title"
+            :value="generalInfoCard.value"
+            :sub-icon="generalInfoCard.subIcon"
+            :action-text="generalInfoCard.actionText"
+            :icon-gradient="generalInfoCard.iconGradient"
+            :action-link="generalInfoCard.actionLink"
+          ></general-info-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container class="mt-4">
+      <v-row>
+        <v-col
+          v-for="priceCard in priceCards"
+          :key="priceCard.id"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="3"
+          xl="2"
+        >
+          <price-card
+            :label="priceCard.label"
+            :price="priceCard.price"
+            :features="priceCard.features"
+            btn-text="get started"
+            :bg-img-src="priceCard.bgImgSrc"
+            :theme-color="priceCard.themeColor"
+            :btn-gradient="priceCard.btnGradient"
+          ></price-card>
+        </v-col>
+      </v-row>
+    </v-container>
     <div class="simple-table mt-4">
       <simple-table
         title="Simple Data"
@@ -49,9 +61,152 @@
         :pages="extendedTablePages"
       ></extended-table>
     </div>
-    <div class="line-chart">
-      <line-chart></line-chart>
+    <div class="line-chart mt-6">
+      <line-chart
+        gradient1="#40AC7D88"
+        gradient2="#40AC7D00"
+        :labels="lineChartLabels"
+        :datasets="lineChartDatasets"
+        :y-min="-20"
+        :y-max="50"
+      ></line-chart>
     </div>
+    <v-card class="mt-6">
+      <v-card-title class="text-body-1 font-weight-bold"
+        >Form Elements</v-card-title
+      >
+      <v-card-text>
+        <v-form
+          ref="formRef"
+          v-model="isFormValid"
+          @submit.prevent="submitHandler"
+        >
+          <v-container>
+            <v-row justify="space-between" dense>
+              <v-col cols="12" sm="6" md="4" lg="3">
+                <v-text-field
+                  v-model="name"
+                  :rules="[formRules.required]"
+                  outlined
+                  placeholder="enter name"
+                  dense
+                  light
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4" lg="3">
+                <v-text-field
+                  v-model="email"
+                  :rules="[formRules.required, formRules.isEmail]"
+                  outlined
+                  placeholder="enter email"
+                  dense
+                  light
+                  type="email"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6" md="4" lg="3">
+                <v-text-field
+                  v-model="password"
+                  :rules="[formRules.minLength]"
+                  outlined
+                  placeholder="enter password"
+                  type="password"
+                  dense
+                  light
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row dense>
+              <v-col cols="12">
+                <v-textarea
+                  v-model="message"
+                  :rules="[formRules.required]"
+                  auto-grow
+                  no-resize
+                  outlined
+                  placeholder="enter message"
+                  dense
+                  light
+                  height="10em"
+                ></v-textarea>
+              </v-col>
+            </v-row>
+            <v-row dense>
+              <v-col cols="12" sm="6" md="4" lg="3">
+                <v-select
+                  v-model="interests"
+                  :items="interestsItems"
+                  label="select one field"
+                  :rules="[formRules.required]"
+                  outlined
+                  dense
+                  light
+                ></v-select>
+              </v-col>
+            </v-row>
+            <v-row dense>
+              <v-col
+                v-for="checkbox in checkboxes"
+                :key="checkbox.value"
+                cols="12"
+                sm="6"
+                md="4"
+                lg="3"
+                xl="2"
+              >
+                <v-checkbox
+                  v-model="colors"
+                  :value="checkbox.value"
+                  color="orange orange-darken-1"
+                  :label="checkbox.label"
+                  dense
+                  light
+                ></v-checkbox>
+              </v-col>
+            </v-row>
+            <v-radio-group v-model="gender" row mandatory>
+              <v-row dense>
+                <v-col
+                  v-for="radio in radios"
+                  :key="radio.value"
+                  cols="12"
+                  sm="6"
+                  md="4"
+                  lg="3"
+                  xl="2"
+                >
+                  <v-radio
+                    color="teal lighten-2"
+                    :value="radio.value"
+                    :label="radio.label"
+                    light
+                    dense
+                  ></v-radio>
+                </v-col>
+              </v-row>
+            </v-radio-group>
+            <v-row dense>
+              <v-col cols="12" sm="6" md="4" lg="3" xl="2">
+                <v-switch
+                  v-model="toggleModel"
+                  color="pink lighten-1"
+                  label="toggle me"
+                  light
+                  dense
+                ></v-switch>
+              </v-col>
+            </v-row>
+            <v-btn
+              class="primary white--text text-body-2 pa-4"
+              type="submit"
+              :loading="formLoading"
+            >
+              Submit
+            </v-btn>
+          </v-container>
+        </v-form>
+      </v-card-text>
+    </v-card>
   </div>
 </template>
 
@@ -71,9 +226,53 @@ export default {
   },
   data() {
     return {
+      isFormValid: true,
+      formLoading: false,
+      name: '',
+      email: '',
+      password: '',
+      message: '',
+      interests: '',
+      interestsItems: [
+        { text: 'HTML', value: 'html' },
+        { text: 'CSS', value: 'css' },
+        { text: 'JAVASCRIPT', value: 'js' },
+      ],
+      checkboxes: [
+        {
+          label: 'red-color',
+          value: 'red',
+        },
+        {
+          label: 'blue-color',
+          value: 'blue',
+        },
+        {
+          label: 'green-color',
+          value: 'green',
+        },
+        {
+          label: 'orange-color',
+          value: 'orange',
+        },
+      ],
+      colors: [],
+      radios: [
+        {
+          label: 'female',
+          value: 'female',
+        },
+        {
+          value: 'male',
+          label: 'male',
+        },
+      ],
+      gender: '',
+      toggleModel: true,
       generalInfoCards: [],
       priceCards: [],
       simpleTableData: [],
+      toggle: true,
       simpleTableHeaders: [
         {
           text: 'ID',
@@ -140,6 +339,8 @@ export default {
         },
       ],
       extendedTablePages: [10, 20, 50, 100],
+      lineChartLabels: [],
+      lineChartDatasets: [],
     }
   },
   fetch() {
@@ -258,17 +459,53 @@ export default {
       this.extendedTableItems[i].country =
         Math.random() < 0.5 ? 'USA' : 'Germany'
     }
+    this.lineChartLabels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+    ]
+    this.lineChartDatasets = [
+      {
+        label: 'My First dataset',
+        borderColor: '#40AC7D',
+        data: [0, 10, 5, 2, 20, 30],
+        fill: 'start',
+      },
+    ]
+  },
+  computed: {
+    formRules() {
+      return {
+        required: val => {
+          if (!val || !val.trim().length) return 'field is required'
+          return true
+        },
+        isEmail: val => {
+          if (!val.includes('@')) return 'enter valid email'
+          return true
+        },
+        minLength: val => {
+          if (val.trim().length < 6) return 'min length is 6'
+          return true
+        },
+      }
+    },
+  },
+  methods: {
+    submitHandler() {
+      this.$refs.formRef.validate()
+      if (this.isFormValid) {
+        this.formLoading = true
+        setTimeout(() => {
+          this.formLoading = false
+        }, 2000)
+      }
+    },
   },
 }
 </script>
 
-<style scoped lang="scss">
-.generalCard {
-  width: calc((100% - (4 * 3em)) / 4);
-  margin: 1.5em;
-}
-.price-card {
-  width: calc((100% - (4 * 3em)) / 4);
-  margin: 1.5em;
-}
-</style>
+<style scoped lang="scss"></style>
