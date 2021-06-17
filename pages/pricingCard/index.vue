@@ -9,7 +9,6 @@
           sm="6"
           md="4"
           lg="3"
-          xl="2"
         >
           <price-card
             :label="priceCard.label"

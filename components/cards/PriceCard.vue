@@ -3,7 +3,7 @@
     <v-card
       light
       color="white"
-      class="card pa-4 d-flex flex-column justify-center align-center"
+      class="price-card pa-4 d-flex flex-column justify-center align-center"
       :elevation="!hover ? 2 : 10"
     >
       <v-img
@@ -116,7 +116,7 @@ export default {
 .v-list-item__content {
   padding: 0 !important;
 }
-.card {
+.price-card {
   position: relative;
 }
 .card-bg-img {
