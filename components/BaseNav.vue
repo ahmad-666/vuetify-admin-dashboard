@@ -11,7 +11,13 @@
   >
     <v-app-bar-nav-icon @click="toggleShowSidebar"></v-app-bar-nav-icon>
     <v-app-bar-title
-      class="font-weight-medium text-subtitle-1 grey--text text--darken-3"
+      class="
+        font-weight-medium
+        text-subtitle-1
+        grey--text
+        text--darken-3
+        ml-n6 ml-sm-0
+      "
       >Site Name</v-app-bar-title
     >
     <v-spacer></v-spacer>
@@ -32,7 +38,14 @@
     </v-dialog>
     <v-menu offset-y>
       <template #activator="{ attrs, on }">
-        <v-badge color="red" dark offset-y="10" offset-x="25" dot>
+        <v-badge
+          color="red"
+          dark
+          offset-y="10"
+          offset-x="25"
+          dot
+          class="ml-n6 ml-sm-0"
+        >
           <v-btn
             v-bind="attrs"
             text
@@ -66,7 +79,13 @@
     </v-menu>
     <v-menu offset-y>
       <template #activator="{ attrs, on }">
-        <v-btn v-bind="attrs" color="transparent" text v-on="on">
+        <v-btn
+          v-bind="attrs"
+          color="transparent"
+          text
+          class="ml-n6 ml-sm-0"
+          v-on="on"
+        >
           <v-avatar size="25">
             <v-img src="/imgs/profile.png"></v-img>
           </v-avatar>

@@ -5,7 +5,7 @@
     dark
     fixed
     width="30em"
-    class="py-2 px-4 mySidebar ml-4 rounded-lg"
+    class="py-2 px-4 mySidebar mySidebarPos ml-4 rounded-lg"
     :expand-on-hover="!expandSidebar"
   >
     <v-list>
@@ -137,6 +137,8 @@ export default {
 }
 .mySidebar {
   background-image: linear-gradient(0deg, #ff6491, #ff8d72) !important;
+}
+.mySidebarPos {
   top: 7em !important;
   height: calc(100% - 8em) !important;
 }
