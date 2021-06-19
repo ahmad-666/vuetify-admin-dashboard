@@ -1,13 +1,5 @@
 <template>
-  <v-app-bar
-    color="transparent"
-    absolute
-    app
-    dense
-    class="pl-4"
-    elevate-on-scroll
-    scroll-target="#scrolling-techniques-7"
-  >
+  <v-app-bar color="transparent" absolute app dense class="pl-4" :elevation="0">
     <v-app-bar-nav-icon @click="toggleShowSidebar"></v-app-bar-nav-icon>
     <v-app-bar-title
       v-if="!isMobile"
