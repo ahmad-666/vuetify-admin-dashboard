@@ -59,7 +59,10 @@
         :pages="extendedTablePages"
       ></extended-table>
     </div>
-    <div class="line-chart mt-6">
+    <v-card color="cardColor" class="line-chart mt-6">
+      <v-card-title class="font-weight-bold text-subtitle-1 titleColor--text"
+        >Title Of Chart</v-card-title
+      >
       <line-chart
         gradient1="#40AC7D88"
         gradient2="#40AC7D00"
@@ -68,9 +71,9 @@
         :y-min="-20"
         :y-max="50"
       ></line-chart>
-    </div>
-    <v-card class="mt-6">
-      <v-card-title class="text-body-1 font-weight-bold"
+    </v-card>
+    <v-card class="mt-6" color="cardColor">
+      <v-card-title class="text-body-1 font-weight-bold titleColor--text"
         >Form Elements</v-card-title
       >
       <v-card-text>
@@ -88,7 +91,6 @@
                   outlined
                   placeholder="enter name"
                   dense
-                  light
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6" md="4" lg="3">
@@ -98,7 +100,6 @@
                   outlined
                   placeholder="enter email"
                   dense
-                  light
                   type="email"
                 ></v-text-field>
               </v-col>
@@ -110,7 +111,6 @@
                   placeholder="enter password"
                   type="password"
                   dense
-                  light
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -124,7 +124,6 @@
                   outlined
                   placeholder="enter message"
                   dense
-                  light
                   height="10em"
                 ></v-textarea>
               </v-col>
@@ -138,7 +137,6 @@
                   :rules="[formRules.required]"
                   outlined
                   dense
-                  light
                 ></v-select>
               </v-col>
             </v-row>
@@ -158,7 +156,6 @@
                   color="orange orange-darken-1"
                   :label="checkbox.label"
                   dense
-                  light
                 ></v-checkbox>
               </v-col>
             </v-row>
@@ -177,7 +174,6 @@
                     color="teal lighten-2"
                     :value="radio.value"
                     :label="radio.label"
-                    light
                     dense
                   ></v-radio>
                 </v-col>
@@ -189,7 +185,6 @@
                   v-model="toggleModel"
                   color="pink lighten-1"
                   label="toggle me"
-                  light
                   dense
                 ></v-switch>
               </v-col>

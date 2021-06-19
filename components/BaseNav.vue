@@ -3,7 +3,6 @@
     color="transparent"
     absolute
     app
-    light
     dense
     class="pl-4"
     elevate-on-scroll
@@ -11,23 +10,26 @@
   >
     <v-app-bar-nav-icon @click="toggleShowSidebar"></v-app-bar-nav-icon>
     <v-app-bar-title
-      class="
-        font-weight-medium
-        text-subtitle-1
-        grey--text
-        text--darken-3
-        ml-n6 ml-sm-0
-      "
+      v-if="!isMobile"
+      class="font-weight-medium text-subtitle-1 titleColor--text ml-n6 ml-sm-0"
       >Site Name</v-app-bar-title
     >
     <v-spacer></v-spacer>
+    <v-switch
+      v-model="darkMode"
+      label="dark mode"
+      class="d-flex justify-center align-center mt-5"
+      color="secondary"
+      @change="changeDarkMode"
+    ></v-switch>
+
     <v-dialog>
       <template #activator="{ on, attrs }">
         <v-btn v-bind="attrs" text v-on="on">
           <v-icon size="20" color="grey">fas fa-search</v-icon>
         </v-btn>
       </template>
-      <v-form class="white pa-3" @submit.prevent="searchHandler">
+      <v-form class="cardColor pa-3" @submit.prevent="searchHandler">
         <v-text-field
           v-model="search"
           class="transparent"
@@ -57,7 +59,7 @@
           </v-btn>
         </v-badge>
       </template>
-      <v-list :elevation="3" light>
+      <v-list :elevation="3" width="25em" color="cardColor">
         <v-list-item
           v-for="notification in notifications"
           :key="notification.id"
@@ -67,8 +69,8 @@
             <nuxt-link :to="notification.route">
               <v-list-item-content class="pa-0">
                 <v-list-item-title
-                  class="text-caption grey--text pa-2"
-                  :class="{ grey: hover, 'lighten-3': hover }"
+                  class="text-caption textColor--text pa-2"
+                  :class="{ textColor: hover, 'lighten-3': hover }"
                   >{{ notification.text }}</v-list-item-title
                 >
               </v-list-item-content>
@@ -92,7 +94,7 @@
           <v-icon size="10" color="grey darken-1">fas fa-chevron-down</v-icon>
         </v-btn>
       </template>
-      <v-list width="15em">
+      <v-list width="15em" color="cardColor">
         <v-list-item
           v-for="profileLink in profileLinks"
           :key="profileLink.id"
@@ -102,8 +104,8 @@
             <nuxt-link :to="profileLink.route">
               <v-list-item-content class="pa-0">
                 <v-list-item-title
-                  class="pa-3 grey--text text-caption"
-                  :class="{ grey: hover, 'lighten-3': hover }"
+                  class="pa-3 textColor--text text-caption"
+                  :class="{ textColor: hover, 'lighten-3': hover }"
                   >{{ profileLink.text }}</v-list-item-title
                 >
               </v-list-item-content>
@@ -124,6 +126,7 @@ export default {
   // },
   data() {
     return {
+      darkMode: false,
       search: '',
       showSearchForm: false,
       notifications: [],
@@ -170,10 +173,18 @@ export default {
       },
     ]
   },
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.mobile
+    },
+  },
   methods: {
     searchHandler() {},
     toggleShowSidebar() {
-      this.$emit('event:toggleExpandSidebar')
+      this.$emit('event:toggleShowSidebar')
+    },
+    changeDarkMode(val) {
+      this.$vuetify.theme.dark = val
     },
   },
 }

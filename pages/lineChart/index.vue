@@ -1,16 +1,17 @@
 <template>
-  <div class="mt-n3">
-    <div class="line-chart mt-6">
-      <line-chart
-        gradient1="#40AC7D88"
-        gradient2="#40AC7D00"
-        :labels="lineChartLabels"
-        :datasets="lineChartDatasets"
-        :y-min="-20"
-        :y-max="50"
-      ></line-chart>
-    </div>
-  </div>
+  <v-card color="cardColor" class="line-chart mt-n0">
+    <v-card-title class="font-weight-bold text-subtitle-1 titleColor--text"
+      >Title Of Chart</v-card-title
+    >
+    <line-chart
+      gradient1="#40AC7D88"
+      gradient2="#40AC7D00"
+      :labels="lineChartLabels"
+      :datasets="lineChartDatasets"
+      :y-min="-20"
+      :y-max="50"
+    ></line-chart>
+  </v-card>
 </template>
 
 <script>

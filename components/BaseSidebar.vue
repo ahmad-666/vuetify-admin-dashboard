@@ -1,12 +1,20 @@
 <template>
   <v-navigation-drawer
-    v-model="sidebarModel"
+    v-model="isShowSidebar"
+    :hide-overlay="true"
     color="teal accent-4"
+    :app="isMobile"
     dark
     fixed
+    :bottom="isMobile"
     width="30em"
-    class="py-2 px-4 mySidebar mySidebarPos ml-4 rounded-lg"
-    :expand-on-hover="!expandSidebar"
+    class="py-2 px-4 mySidebar"
+    :class="{
+      mySidebarPos: !isMobile,
+      'ml-4': !isMobile,
+      'rounded-lg': !isMobile,
+    }"
+    :expand-on-hover="!showSidebar && !isMobile"
   >
     <v-list>
       <v-list-item v-for="sidebarItem in sidebarItems" :key="sidebarItem.id">
@@ -64,14 +72,14 @@
 <script>
 export default {
   props: {
-    expandSidebar: {
+    showSidebar: {
       type: Boolean,
       default: true,
     },
   },
   data() {
     return {
-      sidebarModel: true,
+      // sidebarModel: !this.$vuetify.breakpoint.mobile,
       sidebarItems: [
         {
           id: 1,
@@ -127,7 +135,22 @@ export default {
           route: '/form',
         },
       ],
+      mobileShowSidebar: false,
     }
+  },
+  computed: {
+    isMobile() {
+      return this.$vuetify.breakpoint.mobile
+    },
+    isShowSidebar: {
+      get() {
+        if (!this.isMobile) return true
+        return this.showSidebar
+      },
+      set(val) {
+        return val
+      },
+    },
   },
 }
 </script>

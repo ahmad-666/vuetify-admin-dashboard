@@ -1,6 +1,6 @@
 <template>
   <div class="mt-n3">
-    <div class="extended-table mt-6">
+    <div class="extended-table mt-3">
       <extended-table
         title="Extended Table"
         :items="extendedTableItems"

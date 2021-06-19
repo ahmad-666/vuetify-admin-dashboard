@@ -1,17 +1,11 @@
 <template>
   <v-hover v-slot="{ hover }">
     <v-card
-      light
-      color="white"
+      color="cardColor"
       class="price-card pa-4 d-flex flex-column justify-center align-center"
       :elevation="!hover ? 2 : 10"
     >
-      <v-img
-        :src="bgImgSrc"
-        width="auto"
-        height="15em"
-        class="card-bg-img"
-      ></v-img>
+      <img :src="bgImgSrc" :alt="bgImgSrc" class="card-bg-img" />
 
       <v-card-title class="card-title">
         <h6 class="text-uppercase text-h5 font-weight-bold white--text">
@@ -19,7 +13,7 @@
         </h6>
       </v-card-title>
       <v-card-text :style="{ marginTop: '10em' }">
-        <v-list class="d-flex flex-column align-center">
+        <v-list class="d-flex flex-column align-center" color="transparent">
           <v-list-item
             v-for="feature in features"
             :key="feature.title"
@@ -28,8 +22,8 @@
             <v-list-item-content>
               <v-list-item-title
                 class="
-                  grey--text
-                  text--darken-3
+                  titleColor--text
+                  text--lighten-2
                   font-weight-medium
                   text-subtitle-1
                 "
@@ -39,14 +33,7 @@
           </v-list-item>
         </v-list>
         <div class="price-container mt-4">
-          <h6
-            class="
-              grey--text
-              text--darken-4 text-h4
-              font-weight-bold
-              text-center
-            "
-          >
+          <h6 class="titleColor--text text-h4 font-weight-bold text-center">
             {{ price }}$
           </h6>
           <h6
@@ -118,11 +105,14 @@ export default {
 }
 .price-card {
   position: relative;
+  overflow: hidden;
 }
 .card-bg-img {
   position: absolute;
   left: 0;
   top: 0;
+  width: 95%;
+  height: auto;
 }
 .card-title {
   position: absolute;

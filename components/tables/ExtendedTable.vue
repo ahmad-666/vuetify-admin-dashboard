@@ -1,7 +1,7 @@
 <template>
-  <v-card class="pa-4">
+  <v-card color="cardColor" class="pa-4">
     <v-card-title
-      class="pa-0 grey--text text--darken-3 text-subtitle-1 font-weight-bold"
+      class="pa-0 titleColor--text text-subtitle-1 font-weight-bold"
       >{{ title }}</v-card-title
     >
     <v-data-table
@@ -11,7 +11,7 @@
       :items-per-page="pageSize"
       :hide-default-footer="true"
       :page="page"
-      class="mt-4"
+      class="mt-4 transparent"
     >
       <template #top>
         <div
@@ -100,7 +100,6 @@ export default {
   },
   computed: {
     totalEntries() {
-     
       return this.items.length
     },
     totalPages() {
@@ -120,6 +119,6 @@ export default {
   width: 30em;
 }
 .page-size-select {
-  width: 10em;
+  width: 15em;
 }
 </style>
