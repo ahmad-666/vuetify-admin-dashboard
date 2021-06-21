@@ -1,5 +1,5 @@
 <template>
-  <v-card color="cardColor" class="pa-4">
+  <v-card color="cardColor" class="pa-4 custom-table">
     <v-card-title
       class="pa-0 titleColor--text text-subtitle-1 font-weight-bold"
       >{{ title }}</v-card-title
@@ -62,9 +62,12 @@
           <v-spacer></v-spacer>
           <v-pagination
             v-model="page"
+            circle
             class="mt-4 mt-md-0"
             :length="totalPages"
             :total-visible="5"
+            prev-icon="fas fa-angle-double-left"
+            next-icon="fas fa-angle-double-right"
           ></v-pagination>
         </div>
       </template>

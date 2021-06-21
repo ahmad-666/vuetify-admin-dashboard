@@ -17,59 +17,75 @@
     :expand-on-hover="!showSidebar && !isMobile"
   >
     <v-list>
-      <v-list-item v-for="sidebarItem in sidebarItems" :key="sidebarItem.id">
-        <v-list-item-icon>
-          <v-icon size="18">{{ sidebarItem.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content class="ml-2">
-          <v-list-item-title>
-            <nuxt-link v-if="!sidebarItem.items" :to="sidebarItem.route">
-              <p
-                class="font-weight-light text-uppercase text-body-2 white--text"
-              >
+      <template v-for="sidebarItem in sidebarItems">
+        <v-list-item
+          v-if="!sidebarItem.items"
+          :key="sidebarItem.text"
+          nuxt
+          :to="sidebarItem.route"
+          exact-active-class="activeClass"
+        >
+          <v-list-item-icon>
+            <v-icon size="15">{{ sidebarItem.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content class="ml-2">
+            <v-list-item-title>
+              <p class="font-weight-light text-uppercase text-caption">
                 {{ sidebarItem.text }}
               </p>
-            </nuxt-link>
-            <v-list-group v-else>
-              <template #activator>
-                <v-list-item-content>
-                  <v-list-item-title
-                    class="
-                      font-weight-light
-                      text-body-2
-                      white--text
-                      text-uppercase
-                    "
-                    >{{ sidebarItem.text }}</v-list-item-title
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          v-else
+          :key="sidebarItem.text"
+          exact-active-class="activeClass"
+        >
+          <v-list-item-icon>
+            <v-icon
+              size="15"
+              :color="isListOpen(sidebarItem.items) ? getActiveColor : 'white'"
+              >{{ sidebarItem.icon }}</v-icon
+            >
+          </v-list-item-icon>
+          <v-list-item-content class="ml-2">
+            <v-list-item-title>
+              <v-list-group :value="isListOpen(sidebarItem.items)">
+                <template #activator>
+                  <p
+                    class="font-weight-light text-caption text-uppercase"
+                    :style="{ width: '100%' }"
                   >
-                </v-list-item-content>
-              </template>
-              <v-list>
-                <v-list-item v-for="item in sidebarItem.items" :key="item.text">
-                  <nuxt-link :to="item.route">
+                    {{ sidebarItem.text }}
+                  </p>
+                </template>
+                <v-list>
+                  <v-list-item
+                    v-for="item in sidebarItem.items"
+                    :key="item.text"
+                    nuxt
+                    :to="item.route"
+                    exact-active-class="activeClass"
+                  >
                     <v-list-item-content>
                       <v-list-item-title
-                        class="
-                          font-weight-light
-                          text-body-2
-                          white--text
-                          text-uppercase
-                        "
+                        class="font-weight-light text-caption text-uppercase"
                       >
                         {{ item.text }}
                       </v-list-item-title>
                     </v-list-item-content>
-                  </nuxt-link>
-                </v-list-item>
-              </v-list>
-            </v-list-group>
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
+                  </v-list-item>
+                </v-list>
+              </v-list-group>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
     </v-list>
   </v-navigation-drawer>
 </template>
 <script>
+import colors from 'vuetify/lib/util/colors'
 export default {
   props: {
     showSidebar: {
@@ -151,6 +167,14 @@ export default {
         return val
       },
     },
+    getActiveColor() {
+      return colors.pink.darken2
+    },
+  },
+  methods: {
+    isListOpen(items) {
+      return items.filter(item => item.route === this.$route.fullPath).length
+    },
   },
 }
 </script>
@@ -159,10 +183,20 @@ export default {
   padding: 0 !important;
 }
 .mySidebar {
-  background-image: linear-gradient(0deg, #ff6491, #ff8d72) !important;
+  background-image: linear-gradient(0deg, #0098f0, #00f2c3) !important;
 }
 .mySidebarPos {
   top: 7em !important;
   height: calc(100% - 8em) !important;
+}
+.activeClass {
+  color: #c2185b !important;
+  position: relative;
+  &::before {
+    display: none;
+  }
+}
+.v-list-item--link:before {
+  display: none;
 }
 </style>

@@ -1,5 +1,15 @@
 <template>
-  <v-app-bar color="transparent" absolute app dense class="pl-4" :elevation="0">
+  <v-app-bar
+    color="transparent"
+    fixed
+    app
+    dense
+    class="pl-4"
+    :elevation="0"
+    collapse
+    collapse-on-scroll
+    :width="!isScrolled ? '' : '60px'"
+  >
     <v-app-bar-nav-icon @click="toggleShowSidebar"></v-app-bar-nav-icon>
     <v-app-bar-title
       v-if="!isMobile"
@@ -134,6 +144,7 @@ export default {
           text: 'logout',
         },
       ],
+      isScrolled: false,
     }
   },
   fetch() {
@@ -170,6 +181,12 @@ export default {
       return this.$vuetify.breakpoint.mobile
     },
   },
+  mounted() {
+    window.addEventListener('scroll', this.scrollHandler)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.scrollHandler)
+  },
   methods: {
     searchHandler() {},
     toggleShowSidebar() {
@@ -177,6 +194,10 @@ export default {
     },
     changeDarkMode(val) {
       this.$vuetify.theme.dark = val
+    },
+    scrollHandler(e) {
+      if (window.scrollY < 20) this.isScrolled = false
+      else this.isScrolled = true
     },
   },
 }

@@ -53,7 +53,7 @@ export default {
           dark: false,
           themes: {
             light: {
-              primary: colors.indigo.base,
+              primary: '#e14eca',
               secondary: colors.orange.base,
               accent: colors.teal.base,
               success: colors.teal.accent4,
@@ -66,7 +66,7 @@ export default {
               textColor: '#9a9a9a',
             },
             dark: {
-              primary: colors.indigo.base,
+              primary: '#e14eca',
               secondary: colors.orange.base,
               accent: colors.teal.base,
               success: colors.teal.accent4,

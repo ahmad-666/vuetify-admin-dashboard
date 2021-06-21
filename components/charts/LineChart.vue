@@ -5,11 +5,11 @@ export default {
   props: {
     gradient1: {
       type: String,
-      default: '#40AC7D88',
+      default: 'transparent',
     },
     gradient2: {
       type: String,
-      default: '#40AC7D00',
+      default: 'transparent',
     },
     labels: {
       type: Array,
@@ -46,8 +46,8 @@ export default {
           yAxes: [
             {
               ticks: {
-                max: this.yMin,
-                min: this.yMax,
+                max: this.yMax,
+                min: this.yMin,
               },
             },
           ],

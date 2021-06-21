@@ -51,7 +51,7 @@
         :headers="simpleTableHeaders"
       ></simple-table>
     </div>
-    <div class="extended-table mt-6">
+    <div class="extended-table mt-4">
       <extended-table
         title="Extended Table"
         :items="extendedTableItems"
@@ -59,20 +59,52 @@
         :pages="extendedTablePages"
       ></extended-table>
     </div>
-    <v-card color="cardColor" class="line-chart mt-6">
-      <v-card-title class="font-weight-bold text-subtitle-1 titleColor--text"
-        >Title Of Chart</v-card-title
-      >
-      <line-chart
-        gradient1="#40AC7D88"
+    <div class="mt-4">
+      <chart-card
+        title="title of chart"
+        gradient1="#40AC7D33"
         gradient2="#40AC7D00"
         :labels="lineChartLabels"
-        :datasets="lineChartDatasets"
-        :y-min="-20"
-        :y-max="50"
-      ></line-chart>
-    </v-card>
-    <v-card class="mt-6" color="cardColor">
+        :datasets="lineChartDatasets1"
+        :y-min="-10"
+        :y-max="40"
+      ></chart-card>
+    </div>
+
+    <v-container class="mt-4">
+      <v-row>
+        <v-col cols="12" md="6">
+          <chart-card
+            title="title of chart"
+            sub-title="subtitle of chart"
+            icon="fas fa-chart-line"
+            value="$100000"
+            gradient1="#e91e6333"
+            gradient2="#e91e6300"
+            :labels="lineChartLabels"
+            :datasets="lineChartDatasets2"
+            :y-min="-10"
+            :y-max="40"
+          ></chart-card>
+        </v-col>
+        <v-col cols="12" md="6">
+          <chart-card
+            title="title of chart"
+            sub-title="subtitle of chart"
+            icon="fas fa-chart-line"
+            value="$100000"
+            gradient1="#ff174455"
+            gradient2="#673ab700"
+            :labels="lineChartLabels"
+            :datasets="lineChartDatasets3"
+            :y-min="-10"
+            :y-max="40"
+          ></chart-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-card class="mt-4" color="cardColor">
       <v-card-title class="text-body-1 font-weight-bold titleColor--text"
         >Form Elements</v-card-title
       >
@@ -208,14 +240,14 @@ import GeneralInfoCard from '~/components/cards/GeneralInfoCard.vue'
 import PriceCard from '~/components/cards/PriceCard.vue'
 import SimpleTable from '~/components/tables/SimpleTable.vue'
 import ExtendedTable from '~/components/tables/ExtendedTable.vue'
-import LineChart from '~/components/charts/LineChart.vue'
+import ChartCard from '~/components/charts/ChartCard.vue'
 export default {
   components: {
     GeneralInfoCard,
     PriceCard,
     SimpleTable,
     ExtendedTable,
-    LineChart,
+    ChartCard,
   },
   data() {
     return {
@@ -333,7 +365,9 @@ export default {
       ],
       extendedTablePages: [10, 20, 50, 100],
       lineChartLabels: [],
-      lineChartDatasets: [],
+      lineChartDatasets1: [],
+      lineChartDatasets2: [],
+      lineChartDatasets3: [],
     }
   },
   fetch() {
@@ -460,12 +494,31 @@ export default {
       'May',
       'June',
     ]
-    this.lineChartDatasets = [
+    this.lineChartDatasets1 = [
       {
         label: 'My First dataset',
         borderColor: '#40AC7D',
         data: [0, 10, 5, 2, 20, 30],
         fill: 'start',
+        borderWidth: 2,
+      },
+    ]
+    this.lineChartDatasets2 = [
+      {
+        label: 'My First dataset',
+        borderColor: '#673ab7',
+        data: [0, 10, 5, 2, 20, 30],
+        fill: 'start',
+        borderWidth: 2,
+      },
+    ]
+    this.lineChartDatasets3 = [
+      {
+        label: 'My First dataset',
+        borderColor: '#e91e63',
+        data: [0, 10, 5, 2, 20, 30],
+        fill: 'start',
+        borderWidth: 2,
       },
     ]
   },
