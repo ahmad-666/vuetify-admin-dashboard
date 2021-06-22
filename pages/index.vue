@@ -59,6 +59,14 @@
         :pages="extendedTablePages"
       ></extended-table>
     </div>
+    <div class="action-table mt-4">
+      <action-table
+        title="action table"
+        :items="actionTableItems"
+        :headers="actionTableHeaders"
+        :pages="[10, 25, 50, 100]"
+      ></action-table>
+    </div>
     <div class="mt-4">
       <chart-card
         title="title of chart"
@@ -236,6 +244,7 @@
 </template>
 
 <script>
+import ActionTable from '~/components/tables/ActionTable.vue'
 import GeneralInfoCard from '~/components/cards/GeneralInfoCard.vue'
 import PriceCard from '~/components/cards/PriceCard.vue'
 import SimpleTable from '~/components/tables/SimpleTable.vue'
@@ -248,6 +257,7 @@ export default {
     SimpleTable,
     ExtendedTable,
     ChartCard,
+    ActionTable,
   },
   data() {
     return {
@@ -368,6 +378,39 @@ export default {
       lineChartDatasets1: [],
       lineChartDatasets2: [],
       lineChartDatasets3: [],
+      actionTableItems: [],
+      actionTableHeaders: [
+        {
+          text: 'ID',
+          value: 'id',
+          sortable: true,
+          align: 'start',
+        },
+        {
+          text: 'USERNAME',
+          value: 'username',
+          sortable: true,
+          align: 'start',
+        },
+        {
+          text: 'EMAIL',
+          value: 'email',
+          sortable: true,
+          align: 'start',
+        },
+        {
+          text: 'TEL',
+          value: 'tel',
+          sortable: true,
+          align: 'start',
+        },
+        {
+          text: 'ACTIONS',
+          value: 'actions',
+          sortable: true,
+          align: 'start',
+        },
+      ],
     }
   },
   fetch() {
@@ -485,6 +528,14 @@ export default {
       )}$`
       this.extendedTableItems[i].country =
         Math.random() < 0.5 ? 'USA' : 'Germany'
+    }
+    for (let i = 0; i < 100; i++) {
+      this.actionTableItems[i] = {}
+      this.actionTableItems[i].id = i
+      this.actionTableItems[i].username = 'username'
+      this.actionTableItems[i].email = 'something@gmail.com'
+      this.actionTableItems[i].tel = '+123 456 789'
+      this.actionTableItems[i].actions = ''
     }
     this.lineChartLabels = [
       'January',

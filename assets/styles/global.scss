@@ -95,8 +95,19 @@ body .v-application p {
       font-size: 20px !important;
     }
   }
+  .theme--light.v-data-table tbody tr.v-data-table__selected {
+    background-color: rgba(0, 255, 255, 0.17);
+  }
+  .theme--dark.v-data-table tbody tr.v-data-table__selected {
+    background-color: rgba(0, 255, 255, 0.17);
+  }
 }
-
+.position-relative {
+  position: relative;
+}
+.position-absolute{
+  position: absolute !important;
+}
 @media screen and (max-width: 1100px) {
   body {
     font-size: 8px;

@@ -131,6 +131,10 @@ export default {
               text: 'extended table',
               route: '/extendedTable',
             },
+            {
+              text: 'action table',
+              route: '/actionTable',
+            },
           ],
         },
         {
@@ -149,6 +153,12 @@ export default {
           text: 'form elements',
           icon: 'fas fa-edit',
           route: '/form',
+        },
+        {
+          id: 6,
+          text: 'profile',
+          icon: 'fas fa-user',
+          route: '/profile',
         },
       ],
       mobileShowSidebar: false,
