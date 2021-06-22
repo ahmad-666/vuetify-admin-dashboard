@@ -146,6 +146,14 @@ export default {
               text: 'line chart',
               route: '/lineChart',
             },
+            {
+              text: 'bar chart',
+              route: '/barChart',
+            },
+            {
+              text: 'doughnut chart',
+              route: '/doughnutChart',
+            },
           ],
         },
         {

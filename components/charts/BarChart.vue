@@ -1,7 +1,7 @@
 <script>
-import { Line } from 'vue-chartjs'
+import { Bar } from 'vue-chartjs'
 export default {
-  extends: Line,
+  extends: Bar,
   props: {
     gradient1: {
       type: String,
@@ -29,9 +29,10 @@ export default {
     },
   },
   mounted() {
-    this.$refs.canvas.style.height = '30em'
+    this.$refs.canvas.style.height = '35em'
 
     const ctx = this.$refs.canvas.getContext('2d')
+
     const gradient = ctx.createLinearGradient(0, 0, 0, 400)
     gradient.addColorStop(0, this.gradient1)
     gradient.addColorStop(1, this.gradient2)

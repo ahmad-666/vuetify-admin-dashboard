@@ -1,5 +1,5 @@
 <template>
-  <v-card color="cardColor" class="line-chart mt-6">
+  <v-card color="cardColor" class="line-chart mt-0 pb-4">
     <v-card-title class="d-flex flex-column align-start">
       <h6
         v-if="title"
@@ -28,29 +28,19 @@
         v-if="value"
         class="text-h5 textColor--text text--lighten-1 font-weight-bold mt-2"
       >
-        <v-icon v-if="icon" :color="gradient1" size="25" class="mr-2">{{
+        <v-icon v-if="icon" :color="color" size="25" class="mr-2">{{
           icon
         }}</v-icon>
         {{ value }}
       </p>
     </v-card-title>
-    <line-chart
-      :gradient1="gradient1"
-      :gradient2="gradient2"
-      :labels="labels"
-      :datasets="datasets"
-      :y-min="yMin"
-      :y-max="yMax"
-    ></line-chart>
+
+    <slot> </slot>
   </v-card>
 </template>
 <script>
-import LineChart from '~/components/charts/LineChart.vue'
-
 export default {
-  components: {
-    LineChart,
-  },
+  components: {},
   props: {
     title: {
       type: String,
@@ -68,29 +58,9 @@ export default {
       type: [Number, String],
       default: '',
     },
-    gradient1: {
+    color: {
       type: String,
-      default: 'transparent',
-    },
-    gradient2: {
-      type: String,
-      default: 'transparent',
-    },
-    labels: {
-      type: Array,
-      required: true,
-    },
-    datasets: {
-      type: Array,
-      required: true,
-    },
-    yMin: {
-      type: Number,
-      default: -100,
-    },
-    yMax: {
-      type: Number,
-      default: 100,
+      default: '#aaa',
     },
   },
 }

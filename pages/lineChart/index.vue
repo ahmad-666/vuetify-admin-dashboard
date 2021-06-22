@@ -1,15 +1,16 @@
 <template>
   <div>
     <div class="mt-4">
-      <chart-card
-        title="title of chart"
-        gradient1="#40AC7D33"
-        gradient2="#40AC7D00"
-        :labels="lineChartLabels"
-        :datasets="lineChartDatasets1"
-        :y-min="-10"
-        :y-max="40"
-      ></chart-card>
+      <chart-card title="title of chart">
+        <line-chart
+          gradient1="#40AC7D33"
+          gradient2="#40AC7D00"
+          :labels="lineChartLabels"
+          :datasets="lineChartDatasets1"
+          :y-min="-10"
+          :y-max="40"
+        ></line-chart>
+      </chart-card>
     </div>
 
     <v-container class="mt-4">
@@ -20,13 +21,17 @@
             sub-title="subtitle of chart"
             icon="fas fa-chart-line"
             value="$100000"
-            gradient1="#e91e6333"
-            gradient2="#e91e6300"
-            :labels="lineChartLabels"
-            :datasets="lineChartDatasets2"
-            :y-min="-10"
-            :y-max="40"
-          ></chart-card>
+            color="#e91e6333"
+          >
+            <line-chart
+              gradient1="#e91e6333"
+              gradient2="#e91e6300"
+              :labels="lineChartLabels"
+              :datasets="lineChartDatasets2"
+              :y-min="-10"
+              :y-max="40"
+            ></line-chart>
+          </chart-card>
         </v-col>
         <v-col cols="12" md="6">
           <chart-card
@@ -34,13 +39,17 @@
             sub-title="subtitle of chart"
             icon="fas fa-chart-line"
             value="$100000"
-            gradient1="#ff174455"
-            gradient2="#673ab700"
-            :labels="lineChartLabels"
-            :datasets="lineChartDatasets3"
-            :y-min="-10"
-            :y-max="40"
-          ></chart-card>
+            color="#ff174455"
+          >
+            <line-chart
+              gradient1="#ff174455"
+              gradient2="#673ab700"
+              :labels="lineChartLabels"
+              :datasets="lineChartDatasets3"
+              :y-min="-10"
+              :y-max="40"
+            ></line-chart>
+          </chart-card>
         </v-col>
       </v-row>
     </v-container>
@@ -49,9 +58,12 @@
 
 <script>
 import ChartCard from '~/components/charts/ChartCard.vue'
+import LineChart from '~/components/charts/LineChart.vue'
+
 export default {
   components: {
     ChartCard,
+    LineChart,
   },
   data() {
     return {
