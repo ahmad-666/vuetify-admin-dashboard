@@ -168,6 +168,21 @@ export default {
           icon: 'fas fa-user',
           route: '/profile',
         },
+        {
+          id: 7,
+          text: 'tickets',
+          icon: 'fas fa-ticket-alt',
+          items: [
+            {
+              text: 'all tickets',
+              route: '/tickets',
+            },
+            {
+              text: 'send ticket',
+              route: '/sendTicket',
+            },
+          ],
+        },
       ],
       mobileShowSidebar: false,
     }

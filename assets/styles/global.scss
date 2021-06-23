@@ -105,8 +105,19 @@ body .v-application p {
 .position-relative {
   position: relative;
 }
-.position-absolute{
+.position-absolute {
   position: absolute !important;
+}
+.file-input {
+  .v-file-input .v-file-input__text .v-chip {
+    background-color: rgb(216, 97, 54);
+  }
+}
+.border-dark {
+  border: 1px solid darken(white, 75%);
+}
+.border-light {
+  border: 1px solid lighten(black, 80%);
 }
 @media screen and (max-width: 1100px) {
   body {
