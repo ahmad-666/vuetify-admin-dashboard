@@ -247,8 +247,8 @@ export default {
   height: calc(100% - 8em) !important;
 }
 .logo {
-  width: 5em;
-  height: 5em;
+  width: 50px;
+  height: 50px;
 }
 .activeClass {
   color: orange !important;

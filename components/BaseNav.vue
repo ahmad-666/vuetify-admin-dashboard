@@ -219,6 +219,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .collapse-width {
-  width: 7em !important;
+  width: 10em !important;
 }
 </style>
