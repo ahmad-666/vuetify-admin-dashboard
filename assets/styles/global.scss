@@ -119,16 +119,20 @@ body .v-application p {
 .border-light {
   border: 1px solid lighten(black, 80%);
 }
-.primary-gradient {
-  background-image: linear-gradient(
-    to right bottom,
-    #6205be,
-    #631dba,
-    #642bb6,
-    #6535b1,
-    #663eac
-  );
+.v-application {
+  .v-btn.primary-gradient {
+    background-color: transparent !important;
+    background-image: linear-gradient(
+      to right bottom,
+      #6205be,
+      #6321b8,
+      #6531b1,
+      #673daa,
+      #6947a3
+    );
+  }
 }
+
 @media screen and (max-width: 1100px) {
   body {
     font-size: 8px;
