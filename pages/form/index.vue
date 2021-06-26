@@ -117,7 +117,7 @@
             </v-col>
           </v-row>
           <v-btn
-            class="primary white--text text-body-2 pa-4"
+            class="primary white--text text-body-2 py-4 px-6 primary-gradient"
             type="submit"
             :loading="formLoading"
           >

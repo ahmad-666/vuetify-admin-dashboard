@@ -86,7 +86,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-line"
+            icon="mdi-chart-line"
             value="$100000"
             color="#e91e6333"
           >
@@ -104,7 +104,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-line"
+            icon="mdi-chart-line"
             value="$100000"
             color="#ff174455"
           >
@@ -126,7 +126,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-bar"
+            icon="mdi-chart-bar-stacked"
             value="$100000"
             color="#e91e6333"
           >
@@ -144,7 +144,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-bar"
+            icon="mdi-chart-bar-stacked"
             value="$100000"
             color="#ff174455"
           >
@@ -166,7 +166,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-pie"
+            icon="mdi-chart-pie"
             value="$100000"
             color="#e91e6333"
           >
@@ -180,7 +180,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-pie"
+            icon="mdi-chart-pie"
             value="$100000"
             color="#ff174455"
           >
@@ -311,7 +311,7 @@
               </v-col>
             </v-row>
             <v-btn
-              class="primary white--text text-body-2 pa-4"
+              class="primary white--text text-body-2 py-4 px-8 primary-gradient"
               type="submit"
               :loading="formLoading"
             >
@@ -513,9 +513,9 @@ export default {
         id: 1,
         title: 'users',
         value: '10000',
-        icon: 'fas fa-user',
+        icon: 'mdi-account-circle-outline',
         iconGradient: 'linear-gradient(to bottom left,#ff8d72,#ff6491,#ff8d72)',
-        subIcon: 'fas fa-users',
+        subIcon: 'mdi-account-group-outline',
         actionText: 'list of users',
         actionLink: '/users',
       },
@@ -523,9 +523,9 @@ export default {
         id: 2,
         title: 'products',
         value: '250',
-        icon: 'fas fa-shopping-basket',
+        icon: 'mdi-basket-outline',
         iconGradient: 'linear-gradient(to bottom left,#e14eca,#ba54f5,#e14eca)',
-        subIcon: 'fas fa-shopping-cart',
+        subIcon: 'mdi-basket-plus-outline',
         actionText: 'list of products',
         actionLink: '/products',
       },
@@ -533,9 +533,9 @@ export default {
         id: 3,
         title: 'comments',
         value: '1200',
-        icon: 'fas fa-comment',
+        icon: 'mdi-comment-account-outline',
         iconGradient: 'linear-gradient(to bottom left,#1d8cf8,#3358f4,#1d8cf8)',
-        subIcon: 'fas fa-comments',
+        subIcon: 'mdi-comment-multiple-outline',
         actionText: 'list of comments',
         actionLink: '/comments',
       },
@@ -543,9 +543,9 @@ export default {
         id: 4,
         title: 'followers',
         value: '50000',
-        icon: 'fab fa-instagram',
+        icon: 'mdi-instagram',
         iconGradient: 'linear-gradient(to bottom left,#fd5d93,#ec250d,#fd5d93)',
-        subIcon: 'fas fa-heart',
+        subIcon: 'mdi-heart-outline',
         actionText: 'see page',
         actionLink: '/',
       },

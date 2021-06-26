@@ -66,8 +66,8 @@
             class="mt-4 mt-md-0"
             :length="totalPages"
             :total-visible="5"
-            prev-icon="fas fa-angle-double-left"
-            next-icon="fas fa-angle-double-right"
+            prev-icon="mdi-chevron-double-left"
+            next-icon="mdi-chevron-double-right"
           ></v-pagination>
         </div>
       </template>

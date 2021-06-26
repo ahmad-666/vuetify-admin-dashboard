@@ -99,7 +99,7 @@
             <v-btn
               type="submit"
               color="primary"
-              class="py-3 px-6 font-weight-bold white--text"
+              class="py-3 px-6 font-weight-bold white--text primary-gradient"
               :loading="isLoading"
               >Save</v-btn
             >
@@ -138,17 +138,17 @@
           >
             <nuxt-link to="" class="ma-2">
               <v-btn fab color="red" small>
-                <v-icon size="16" color="white">fab fa-google</v-icon>
+                <v-icon size="16" color="white">mdi-google</v-icon>
               </v-btn>
             </nuxt-link>
             <nuxt-link to="" class="ma-2">
               <v-btn fab color="blue" small>
-                <v-icon size="16" color="white">fab fa-twitter</v-icon>
+                <v-icon size="16" color="white">mdi-twitter</v-icon>
               </v-btn>
             </nuxt-link>
             <nuxt-link to="" class="ma-2">
               <v-btn fab color="orange" small>
-                <v-icon size="16" color="white">fab fa-instagram</v-icon>
+                <v-icon size="16" color="white">mdi-instagram</v-icon>
               </v-btn>
             </nuxt-link>
           </v-card-actions>

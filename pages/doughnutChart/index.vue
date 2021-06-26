@@ -5,7 +5,7 @@
         <chart-card
           title="title of chart"
           sub-title="subtitle of chart"
-          icon="fas fa-chart-pie"
+          icon="mdi-chart-pie"
           value="$100000"
           color="#e91e6333"
         >
@@ -19,7 +19,7 @@
         <chart-card
           title="title of chart"
           sub-title="subtitle of chart"
-          icon="fas fa-chart-pie"
+          icon="mdi-chart-pie"
           value="$100000"
           color="#ff174455"
         >

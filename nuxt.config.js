@@ -50,10 +50,10 @@ export default {
         treeShake: true,
         rtl: false,
         theme: {
-          dark: false,
+          dark: true,
           themes: {
             light: {
-              primary: '#e14eca',
+              primary: colors.deepPurple.base,
               secondary: colors.orange.base,
               accent: colors.teal.base,
               success: colors.teal.accent4,
@@ -66,7 +66,7 @@ export default {
               textColor: '#9a9a9a',
             },
             dark: {
-              primary: '#e14eca',
+              primary: colors.deepPurple.base,
               secondary: colors.orange.base,
               accent: colors.teal.base,
               success: colors.teal.accent4,
@@ -83,7 +83,12 @@ export default {
       },
     ],
   ],
-
+  loading: {
+    color: '#ffa500',
+    failedColor: 'crimson',
+    height: '5px',
+    rtl: false,
+  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 

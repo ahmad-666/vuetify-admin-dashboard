@@ -5,7 +5,7 @@
         class="icon rounded-circle d-flex justify-center align-center"
         :style="{ backgroundImage: iconGradient }"
       >
-        <v-icon size="20" color="white">{{ icon }}</v-icon>
+        <v-icon size="25" color="white">{{ icon }}</v-icon>
       </div>
       <div>
         <p
@@ -21,7 +21,7 @@
     <v-card-actions class="py-2 px-0 border-top-light">
       <nuxt-link :to="actionLink">
         <v-btn text class="d-flex align-center textColor--text">
-          <v-icon size="12">{{ subIcon }}</v-icon>
+          <v-icon size="16">{{ subIcon }}</v-icon>
           <p class="ml-2 text-capitalize text-caption font-weight-light">
             {{ actionText }}
           </p>

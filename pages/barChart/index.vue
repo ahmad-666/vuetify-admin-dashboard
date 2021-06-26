@@ -5,7 +5,7 @@
         <chart-card
           title="title of chart"
           sub-title="subtitle of chart"
-          icon="fas fa-chart-bar"
+          icon="mdi-chart-bar-stacked"
           value="$100000"
           color="#e91e6333"
         >
@@ -23,7 +23,7 @@
         <chart-card
           title="title of chart"
           sub-title="subtitle of chart"
-          icon="fas fa-chart-bar"
+          icon="mdi-chart-bar-stacked"
           value="$100000"
           color="#ff174455"
         >

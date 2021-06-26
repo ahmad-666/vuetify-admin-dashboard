@@ -19,7 +19,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-line"
+            icon="mdi-chart-line"
             value="$100000"
             color="#e91e6333"
           >
@@ -37,7 +37,7 @@
           <chart-card
             title="title of chart"
             sub-title="subtitle of chart"
-            icon="fas fa-chart-line"
+            icon="mdi-chart-line"
             value="$100000"
             color="#ff174455"
           >

@@ -15,12 +15,14 @@
     <v-card-text class="d-flex align-center flex-wrap">
       <p class="my-2 mx-4 text-body-2 textColor--text">
         <v-icon color="textColor" size="14" class="mr-2"
-          >fas fa-calendar-alt</v-icon
+          >mdi-calendar-check-outline</v-icon
         >
         {{ date }}
       </p>
       <p class="ma-2 text-body-2 textColor--text">
-        <v-icon color="textColor" size="14" class="mr-2">fas fa-pen-alt</v-icon>
+        <v-icon color="textColor" size="14" class="mr-2"
+          >mdi-pencil-outline</v-icon
+        >
         {{ writer }}
       </p>
     </v-card-text>
@@ -108,11 +110,13 @@
                 info--text
               "
             >
-              <v-icon size="15" class="mr-2" color="info">fas fa-link</v-icon>
+              <v-icon size="15" class="mr-2" color="info"
+                >mdi-link-variant</v-icon
+              >
               {{ message.file.name }}
             </a>
             <p class="mt-4 text-caption textColor--text">
-              <v-icon size="15" class="mr-1">fas fa-clock</v-icon>
+              <v-icon size="15" class="mr-1">mdi-clock-outline</v-icon>
               {{ message.date }}
             </p>
           </div>

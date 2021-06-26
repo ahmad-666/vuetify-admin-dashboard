@@ -46,7 +46,7 @@
                   <template #activator="{ on, attrs }">
                     <v-btn text v-bind="attrs" small v-on="on">
                       <v-icon size="22" color="primary"
-                        >fas fa-file-excel</v-icon
+                        >mdi-file-excel-outline</v-icon
                       >
                     </v-btn>
                   </template>
@@ -64,7 +64,7 @@
                 <v-tooltip color="cardColor darken-1" bottom>
                   <template #activator="{ on, attrs }">
                     <v-btn text v-bind="attrs" small v-on="on">
-                      <v-icon size="22" color="primary">fas fa-file-pdf</v-icon>
+                      <v-icon size="22" color="primary">mdi-file-pdf-outline</v-icon>
                     </v-btn>
                   </template>
                   <p
@@ -81,7 +81,7 @@
                 <v-tooltip color="cardColor darken-1" bottom>
                   <template #activator="{ on, attrs }">
                     <v-btn text v-bind="attrs" small v-on="on">
-                      <v-icon size="22" color="primary">fas fa-print</v-icon>
+                      <v-icon size="22" color="primary">mdi-printer</v-icon>
                     </v-btn>
                   </template>
                   <p
@@ -121,8 +121,8 @@
                   circle
                   :length="totalPages"
                   :total-visible="5"
-                  prev-icon="fas fa-angle-double-left"
-                  next-icon="fas fa-angle-double-right"
+                  prev-icon="mdi-chevron-double-left"
+                  next-icon="mdi-chevron-double-right"
                 ></v-pagination>
               </v-col>
             </v-row>
@@ -138,10 +138,10 @@
         <template #item.actions>
           <div class="d-flex align-center flex-wrap">
             <v-btn small text>
-              <v-icon size="20" color="indigo">fas fa-edit</v-icon>
+              <v-icon size="20" color="indigo">mdi-pencil-outline</v-icon>
             </v-btn>
             <v-btn small text>
-              <v-icon size="20" color="red">fas fa-trash</v-icon>
+              <v-icon size="20" color="red">mdi-trash-can-outline</v-icon>
             </v-btn>
           </div>
         </template>

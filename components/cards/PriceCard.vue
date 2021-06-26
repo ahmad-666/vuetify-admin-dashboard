@@ -8,7 +8,7 @@
       <img :src="bgImgSrc" :alt="bgImgSrc" class="card-bg-img" />
 
       <v-card-title class="card-title">
-        <h6 class="text-uppercase text-h5 font-weight-bold white--text">
+        <h6 class="text-uppercase text-h4 font-weight-bold white--text">
           {{ label }}
         </h6>
       </v-card-title>
