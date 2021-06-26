@@ -64,7 +64,9 @@
                 <v-tooltip color="cardColor darken-1" bottom>
                   <template #activator="{ on, attrs }">
                     <v-btn text v-bind="attrs" small v-on="on">
-                      <v-icon size="22" color="primary">mdi-file-pdf-outline</v-icon>
+                      <v-icon size="22" color="primary"
+                        >mdi-file-pdf-outline</v-icon
+                      >
                     </v-btn>
                   </template>
                   <p
@@ -141,7 +143,7 @@
               <v-icon size="20" color="indigo">mdi-pencil-outline</v-icon>
             </v-btn>
             <v-btn small text>
-              <v-icon size="20" color="red">mdi-trash-can-outline</v-icon>
+              <v-icon size="20" color="red">mdi-close</v-icon>
             </v-btn>
           </div>
         </template>

@@ -10,7 +10,7 @@
       :elevation="0"
     >
       <v-app-bar-nav-icon
-        class="primary--text"
+        class="primary--text ml-1"
         @click="toggleShowSidebar"
       ></v-app-bar-nav-icon>
       <v-app-bar-title
