@@ -90,7 +90,14 @@ export default {
     rtl: false,
   },
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    [
+      'nuxt-leaflet',
+      {
+        /* module options */
+      },
+    ],
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

@@ -207,6 +207,12 @@ export default {
             },
           ],
         },
+        {
+          id: 9,
+          text: 'Maps',
+          icon: 'mdi-map-marker',
+          route: '/map',
+        },
       ],
       showScroll: false,
       mobileShowSidebar: false,
