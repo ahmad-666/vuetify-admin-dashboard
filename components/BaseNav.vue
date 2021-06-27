@@ -11,6 +11,7 @@
     >
       <v-app-bar-nav-icon
         class="primary--text ml-1"
+        :class="{ 'ml-1': !isPageRTL, 'mr-4': isPageRTL }"
         @click="toggleShowSidebar"
       ></v-app-bar-nav-icon>
       <v-app-bar-title
@@ -26,6 +27,14 @@
       <v-spacer></v-spacer>
       <v-btn text small class="mr-n3 ml-sm-0" @click="toggleTheme">
         <v-icon size="20" color="primary">{{ getThemeIcon }}</v-icon>
+      </v-btn>
+      <v-btn
+        text
+        small
+        class="mr-n3 ml-sm-0 primary--text"
+        @click="toggleDirection"
+      >
+        {{ getDirectionText }}
       </v-btn>
       <v-dialog>
         <template #activator="{ on, attrs }">
@@ -192,6 +201,13 @@ export default {
       if (this.$vuetify.theme.dark) return 'mdi-white-balance-sunny'
       else return 'mdi-moon-waning-crescent'
     },
+    isPageRTL() {
+      return this.$vuetify.rtl
+    },
+    getDirectionText() {
+      if (this.isPageRTL) return 'switch to LTR'
+      else return 'switch to RTL'
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.scrollHandler)
@@ -213,6 +229,9 @@ export default {
     },
     toggleTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    },
+    toggleDirection() {
+      this.$vuetify.rtl = !this.$vuetify.rtl
     },
   },
 }

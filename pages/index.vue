@@ -79,7 +79,6 @@
         ></line-chart>
       </chart-card>
     </div>
-
     <v-container class="mt-4">
       <v-row>
         <v-col cols="12" md="6">
@@ -192,7 +191,6 @@
         </v-col>
       </v-row>
     </v-container>
-
     <v-card class="mt-4" color="cardColor">
       <v-card-title class="text-body-1 font-weight-bold titleColor--text"
         >Form Elements</v-card-title

@@ -12,10 +12,14 @@
     <v-main
       class="mt-6"
       :class="{
-        moveLeft: showSidebar && !isMobile,
-        'ml-15': !isMobile,
-        'pl-15': !isMobile,
-        'pr-4': !isMobile,
+        moveLeft: showSidebar && !isMobile && !isVuetifyRtl,
+        moveRight: showSidebar && !isMobile && isVuetifyRtl,
+        'ml-15': !isMobile && !isVuetifyRtl,
+        'pl-15': !isMobile && !isVuetifyRtl,
+        'mr-15': !isMobile && isVuetifyRtl,
+        'pr-15': !isMobile && isVuetifyRtl,
+        'pr-4': !isMobile && !isVuetifyRtl,
+        'pl-4': !isMobile && isVuetifyRtl,
         'px-2': isMobile,
       }"
     >
@@ -51,6 +55,12 @@ export default {
     vuexTheme() {
       return this.$store.getters['theme/getTheme']
     },
+    isVuetifyRtl() {
+      return this.$vuetify.rtl
+    },
+    isVuexRtl() {
+      return this.$store.getters['direction/getRtl']
+    },
   },
   watch: {
     isVuetifyThemeDark(isDark) {
@@ -71,9 +81,23 @@ export default {
         this.$vuetify.theme.dark = false
       }
     },
+    isVuetifyRtl(newVal) {
+      if (newVal) {
+        this.$store.dispatch('direction/setRtl', true)
+        document.body.setAttribute('dir', 'rtl')
+      } else {
+        this.$store.dispatch('direction/setRtl', false)
+        document.body.setAttribute('dir', 'ltr')
+      }
+    },
+    isVuexRtl(newVal) {
+      if (newVal) this.$vuetify.rtl = true
+      else this.$vuetify.rtl = false
+    },
   },
   mounted() {
     this.$store.dispatch('theme/autoTheme')
+    this.$store.dispatch('direction/autoRtl')
   },
   methods: {
     toggleShowSidebar() {
@@ -91,6 +115,9 @@ export default {
 <style lang="scss" scoped>
 .moveLeft {
   margin-left: 27em !important;
+}
+.moveRight {
+  margin-right: 27em !important;
 }
 .mySwitch {
   width: 30em;

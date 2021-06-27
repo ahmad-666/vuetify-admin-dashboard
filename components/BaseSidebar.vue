@@ -13,7 +13,8 @@
       class="pa-4 mySidebar elevation-10 admin-side-bar"
       :class="{
         mySidebarPos: !isMobile,
-        'ml-4': !isMobile,
+        'ml-4': !isMobile && !isRtl,
+        'mr-4': !isMobile && isRtl,
         'rounded-lg': !isMobile,
         'show-scrollbar': isMobile ? true : showScroll,
       }"
@@ -21,9 +22,14 @@
       :expand-on-hover="!showSidebar && !isMobile"
       mini-variant-width="85"
     >
-      <nuxt-link to="/profile" class="d-flex align-center my-2">
+      <nuxt-link to="/" class="d-flex align-center my-2">
         <img src="/imgs/logo.png" alt="imgs/logo.png" class="logo" />
-        <p class="text-body-2 white--text ml-4">Site Name</p>
+        <p
+          v-if="showSidebar || showScroll"
+          class="text-body-2 white--text ml-4"
+        >
+          Site Name
+        </p>
       </nuxt-link>
       <v-divider class="my-6"> </v-divider>
       <v-list class="mt-n6">
@@ -219,6 +225,9 @@ export default {
         return val
       },
     },
+    isRtl() {
+      return this.$vuetify.rtl
+    },
   },
   methods: {
     isListOpen(items) {
@@ -245,6 +254,11 @@ export default {
 .mySidebarPos {
   top: 7em !important;
   height: calc(100% - 8em) !important;
+}
+body[dir='rtl'] {
+  .mySidebarPos {
+    right: 0;
+  }
 }
 .logo {
   width: 50px;
